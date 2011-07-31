@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Smugli</title>
+    <meta name="description" content="">
+    <meta name="author" content="Graeme Foster">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Styles/style.css">
+    <script type="text/javascript" src="/Scripts/libs/modernizr-2.0.6.js"></script>
+    <script type="text/javascript" src="/Scripts/libs/respond.js"></script>
+</head>
+<body>
+    <div id="header-container">
+        <header class="wrapper">
+            <h1 id="title">
+                Smugli</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Some</a></li>
+                    <li><a href="#">navigation</a></li>
+                    <li><a href="#">links</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div id="main" class="wrapper">
+        <aside>
+            <h3>
+                Something aside
+            </h3>
+        </aside>
+        <article>
+            <header>
+                <h2>
+                    Make a prediction!
+                </h2>
+            </header>
+            <form action="#" data-bind="submit: makePrediction">
+            <input id="prediction" data-bind="value: prediction" />
+            <button id="predictButton" type="submit">
+                Predict
+            </button>
+            </form>
+        </article>
+    </div>
+    <div id="footer-container">
+        <footer class="wrapper">
+            <h3>
+                A nice footer
+            </h3>
+        </footer>
+    </div>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write('<script src="/Scripts/libs/jquery-1.6.2.js"><\/script>')
+    </script>
+    <script src="http://github.com/downloads/SteveSanderson/knockout/knockout-1.2.1.js"
+        type="text/javascript"></script>
+    <script src="/Scripts/Prediction.js" type="text/javascript"></script>
+    <!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+    <script type="text/javascript">
+        $(function () {
+            ko.applyBindings(viewModel);
+        });</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EndToEndTests", "EndToEndTests", "{6A1F84AE-CE42-457D-9088-B57439C1757E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndToEndTestEntities", "EndToEndTestEntities\EndToEndTestEntities.csproj", "{A4F21207-07F4-45D9-A061-312137E3E810}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndToEndTests", "EndToEndTests\EndToEndTests.csproj", "{9A261B0C-9D01-4923-A86F-38B2B1BF0C41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smugli", "Smugli\Smugli.csproj", "{1AF788BF-0E02-4566-990A-C91B3256A7BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{3544242C-AF2E-4E30-BB27-5F2F81939EEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smugli.UnitTests", "UnitTests\Smugli.UnitTests\Smugli.UnitTests.csproj", "{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Smugli.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4F21207-07F4-45D9-A061-312137E3E810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4F21207-07F4-45D9-A061-312137E3E810}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4F21207-07F4-45D9-A061-312137E3E810}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4F21207-07F4-45D9-A061-312137E3E810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A261B0C-9D01-4923-A86F-38B2B1BF0C41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A261B0C-9D01-4923-A86F-38B2B1BF0C41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A261B0C-9D01-4923-A86F-38B2B1BF0C41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A261B0C-9D01-4923-A86F-38B2B1BF0C41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AF788BF-0E02-4566-990A-C91B3256A7BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF788BF-0E02-4566-990A-C91B3256A7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF788BF-0E02-4566-990A-C91B3256A7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF788BF-0E02-4566-990A-C91B3256A7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A4F21207-07F4-45D9-A061-312137E3E810} = {6A1F84AE-CE42-457D-9088-B57439C1757E}
+		{9A261B0C-9D01-4923-A86F-38B2B1BF0C41} = {6A1F84AE-CE42-457D-9088-B57439C1757E}
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3} = {3544242C-AF2E-4E30-BB27-5F2F81939EEB}
+	EndGlobalSection
+EndGlobal
