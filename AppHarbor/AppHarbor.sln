@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smugli", "..\Smugli\Smugli.csproj", "{1AF788BF-0E02-4566-990A-C91B3256A7BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{EAF1F700-4235-4F13-B91A-DBF209C8D9FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smugli.UnitTests", "..\UnitTests\Smugli.UnitTests\Smugli.UnitTests.csproj", "{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AF788BF-0E02-4566-990A-C91B3256A7BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF788BF-0E02-4566-990A-C91B3256A7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF788BF-0E02-4566-990A-C91B3256A7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF788BF-0E02-4566-990A-C91B3256A7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D3FFA12F-5DF4-4702-9D11-54CA52E715C3} = {EAF1F700-4235-4F13-B91A-DBF209C8D9FB}
+	EndGlobalSection
+EndGlobal
