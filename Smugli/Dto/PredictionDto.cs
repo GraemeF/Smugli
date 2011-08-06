@@ -1,6 +1,6 @@
 ﻿namespace Smugli.Dto
 {
-    public class PredictionDto:IDto
+    public class PredictionDto : IDto
     {
         public string Prediction { get; set; }
     }

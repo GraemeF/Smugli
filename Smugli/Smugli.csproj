@@ -91,8 +91,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\libs\jquery-1.6.2.js" />
+    <Content Include="Scripts\libs\json2.js" />
     <Content Include="Scripts\libs\modernizr-2.0.6.js" />
     <Content Include="Scripts\libs\respond.js" />
+    <Content Include="Scripts\libs\URI.js" />
     <Content Include="Scripts\Prediction.coffee" />
     <Content Include="Styles\style.css" />
     <Content Include="Views\Index.htm" />
@@ -149,7 +151,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-	<Target Name="BeforeBuild">
-		<Exec Command="&quot;$(ProjectDir)..\Tools\NuGet&quot; install &quot;$(ProjectDir)packages.config&quot; -o &quot;$(ProjectDir)..\Packages&quot;" />
-	</Target>
+  <Target Name="BeforeBuild">
+    <Exec Command="&quot;$(ProjectDir)..\Tools\NuGet&quot; install &quot;$(ProjectDir)packages.config&quot; -o &quot;$(ProjectDir)..\Packages&quot;" />
+  </Target>
 </Project>

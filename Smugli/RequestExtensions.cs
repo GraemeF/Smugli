@@ -5,11 +5,9 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Xml.Linq;
     using System.Xml.Serialization;
 
     using Nancy;
-    using Nancy.IO;
     using Nancy.Json;
 
     using Smugli.Dto;
@@ -18,16 +16,6 @@
 
     public static class RequestExtensions
     {
-        public static string AsString(this RequestStream requestStream)
-        {
-            return new StreamReader(requestStream).ReadToEnd();
-        }
-
-        public static XDocument AsXml(this RequestStream requestStream)
-        {
-            return XDocument.Load(requestStream);
-        }
-
         public static bool AsksForJson(this Request request)
         {
             return request.AsksFor(Schema.ContentTypes.JsonContentTypes);
@@ -43,23 +31,8 @@
         {
             var bodyReader = new StreamReader(request.Body);
             return request.SuppliesJson()
-                       ? new JavaScriptSerializer().Deserialize<TDto>(bodyReader.ReadToEnd())
+                       ? DeserializeJsonBody<TDto>(bodyReader)
                        : (TDto)new XmlSerializer(typeof(TDto)).Deserialize(bodyReader);
-        }
-
-        public static IEnumerable<string> QueryParameterNames(this Request request)
-        {
-            return request.Query.GetDynamicMemberNames();
-        }
-
-        public static bool Supplies(this Request request, IEnumerable<string> contentTypes)
-        {
-            return ContentTypesMatchAnyRequestHeader(request.Headers["Content-Type"], contentTypes);
-        }
-
-        public static bool SuppliesJson(this Request request)
-        {
-            return request.Supplies(Schema.ContentTypes.JsonContentTypes);
         }
 
         private static bool AnyContentTypeIsAccepted(IEnumerable<string> contentTypes, string acceptedType)
@@ -84,6 +57,26 @@
                 .Any(acceptHeaderValue => ContentTypesInAcceptHeader(acceptHeaderValue)
                                               .Any(acceptedType => AnyContentTypeIsAccepted(contentTypes,
                                                                                             acceptedType)));
+        }
+
+        private static TDto DeserializeJsonBody<TDto>(StreamReader bodyReader)
+        {
+            return new JavaScriptSerializer().Deserialize<TDto>(bodyReader.ReadToEnd());
+        }
+
+        private static IEnumerable<string> QueryParameterNames(this Request request)
+        {
+            return request.Query.GetDynamicMemberNames();
+        }
+
+        private static bool Supplies(this Request request, IEnumerable<string> contentTypes)
+        {
+            return ContentTypesMatchAnyRequestHeader(request.Headers["Content-Type"], contentTypes);
+        }
+
+        private static bool SuppliesJson(this Request request)
+        {
+            return request.Supplies(Schema.ContentTypes.JsonContentTypes);
         }
     }
 }
