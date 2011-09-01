@@ -17,6 +17,8 @@
 
         private readonly string _homeUri;
 
+        private object _browser;
+
         public Browser(string homeUri)
             : this(new FirefoxDriver())
         {
@@ -36,7 +38,25 @@
 
         public HomePageDriver Home
         {
-            get { return new HomePageDriver(_driver, _homeUri); }
+            get { return GetBrowser(() => new HomePageDriver(_driver, _homeUri)); }
+        }
+
+        public PredictionPageDriver Prediction
+        {
+            get
+            {
+                return
+                    GetBrowser<PredictionPageDriver>(() =>
+                        {
+                            throw new InvalidOperationException(
+                                "The browser must already be on a Prediction. Use NavigateToPrediction(uri) instead.");
+                        });
+            }
+        }
+
+        public PredictionPageDriver NavigateToPrediction(string predictionUri)
+        {
+            return (PredictionPageDriver)(_browser = new PredictionPageDriver(_driver, predictionUri));
         }
 
         #region IDisposable members
@@ -52,6 +72,12 @@
         {
             if (disposing)
                 _driver.Dispose();
+        }
+
+        private TBrowser GetBrowser<TBrowser>(Func<TBrowser> factory) where TBrowser : class
+        {
+            return _browser as TBrowser
+                   ?? (TBrowser)(_browser = factory());
         }
     }
 }
