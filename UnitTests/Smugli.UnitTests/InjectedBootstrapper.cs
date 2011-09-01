@@ -5,6 +5,7 @@ namespace Smugli.UnitTests
     using Nancy;
 
     using Smugli.Domain;
+    using Smugli.Dto;
 
     using TinyIoC;
 
@@ -16,7 +17,7 @@ namespace Smugli.UnitTests
 
         private readonly IPredictionRepository _predictionRepository;
 
-        public InjectedBootstrapper(IPredictionRepository predictionRepository, IPredictionFactory predictionFactory)
+        public InjectedBootstrapper(IPredictionRepository predictionRepository, IPredictionFactory predictionFactory, IPredictionDtoFactory predictionDtoFactory)
         {
             _predictionRepository = predictionRepository;
             _predictionFactory = predictionFactory;

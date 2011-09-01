@@ -120,6 +120,7 @@
     <Compile Include="Domain\SimpleStringBase.cs" />
     <Compile Include="Dto\DtoExtensions.cs" />
     <Compile Include="Dto\IDto.cs" />
+    <Compile Include="Dto\IPredictionDtoFactory.cs" />
     <Compile Include="Dto\PredictionDto.cs" />
     <Compile Include="JsonpResponse.cs" />
     <Compile Include="PredictionsModule.cs" />

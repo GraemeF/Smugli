@@ -10,10 +10,5 @@ namespace Smugli.Domain
             : base(id)
         {
         }
-
-        public PredictionId(int id)
-            : base(id)
-        {
-        }
     }
 }

@@ -2,6 +2,8 @@
 {
     #region Using Directives
 
+    using System;
+
     using NSubstitute;
 
     using NUnit.Framework;
@@ -31,9 +33,25 @@
 
         private BrowserResponse _lastResponse;
 
+        private IPredictionDtoFactory _predictionDtoFactory;
+
         private IPredictionFactory _predictionFactory;
 
         private IPredictionRepository _predictionRepository;
+
+        [Test]
+        public void GetAPrediction()
+        {
+            IPrediction prediction = A.Prediction.Fake;
+
+            _feature.WithScenario("Get a prediction")
+                .Given(IAmAlreadyLoggedIn)
+                .And(TheRepositoryContainsPrediction_, prediction)
+                .When(IGetThePredictionWithId_, prediction.Id)
+                .Then(TheResponseStatusShouldBe_, HttpStatusCode.OK)
+                .And(TheResponseShouldContainAPrediction)
+                .Execute();
+        }
 
         [Test]
         public void PostANewPrediction()
@@ -57,10 +75,12 @@
         {
             _predictionFactory = Substitute.For<IPredictionFactory>();
             _predictionRepository = Substitute.For<IPredictionRepository>();
+            _predictionDtoFactory = Substitute.For<IPredictionDtoFactory>();
 
             _browser =
                 new Browser(new InjectedBootstrapper(_predictionRepository,
-                                                     _predictionFactory));
+                                                     _predictionFactory,
+                                                     _predictionDtoFactory));
         }
 
         private void APrediction_IsAddedToTheRepository(IPrediction prediction)
@@ -70,6 +90,12 @@
 
         private void IAmAlreadyLoggedIn()
         {
+        }
+
+        private void IGetThePredictionWithId_(PredictionId id)
+        {
+            _lastResponse = _browser.Get("/Predictions/" + id,
+                                         with => with.HttpRequest());
         }
 
         private void IPostThePredictionThat_(string prediction)
@@ -89,6 +115,16 @@
         {
             _predictionFactory.CreatePrediction(predictionText)
                 .Returns(prediction);
+        }
+
+        private void TheRepositoryContainsPrediction_(IPrediction prediction)
+        {
+            _predictionRepository.Get(prediction.Id).Returns(prediction);
+        }
+
+        private void TheResponseShouldContainAPrediction()
+        {
+            throw new NotImplementedException();
         }
 
         private void TheResponseShouldHaveAContentLocation()

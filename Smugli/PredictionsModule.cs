@@ -2,6 +2,8 @@
 {
     #region Using Directives
 
+    using System;
+
     using Nancy;
 
     using Smugli.Domain;
@@ -26,6 +28,7 @@
             Get["/Styles/style.css"] = _ => Response.AsCss("Styles/style.css");
 
             Post["/Predictions"] = _ => AddNewPrediction();
+            Get["/Predictions/{id}"] = x => GetPrediction(new PredictionId((string)x.id));
         }
 
         private Response AddNewPrediction()
@@ -41,6 +44,11 @@
             response.Headers["Content-Location"] = Request.Url.Path + "/" + prediction.Id.Value;
 
             return response;
+        }
+
+        private Response GetPrediction(PredictionId id)
+        {
+            return Response.AsJson(_predictionRepository.Get(id));
         }
     }
 }

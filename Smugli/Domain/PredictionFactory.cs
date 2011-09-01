@@ -8,7 +8,7 @@ namespace Smugli.Domain
 
         public IPrediction CreatePrediction(string predictionText)
         {
-            return new Prediction(new PredictionId(_nextId++), predictionText);
+            return new Prediction(new PredictionId(_nextId++.ToString()), predictionText);
         }
 
         #endregion

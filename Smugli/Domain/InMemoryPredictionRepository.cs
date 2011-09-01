@@ -2,6 +2,7 @@ namespace Smugli.Domain
 {
     #region Using Directives
 
+    using System;
     using System.Collections.Concurrent;
 
     #endregion
@@ -16,6 +17,11 @@ namespace Smugli.Domain
         public void Add(IPrediction prediction)
         {
             _predictions.TryAdd(prediction.Id, prediction);
+        }
+
+        public IPrediction Get(PredictionId id)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
